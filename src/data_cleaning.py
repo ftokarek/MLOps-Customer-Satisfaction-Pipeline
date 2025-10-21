@@ -64,3 +64,4 @@ class DataCleaning:
 
     def handle_data(self) -> Union[pd.DataFrame, pd.Series]:
         return self.strategy.handle_data(self.df)
+
