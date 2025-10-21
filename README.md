@@ -1,6 +1,6 @@
 # MLOps Customer Satisfaction Pipeline
 
-End-to-end machine learning pipeline for predicting customer satisfaction scores. Built with ZenML for orchestration, MLflow for experiment tracking and model deployment, and Streamlit for interactive predictions.
+End-to-end machine learning pipeline for predicting customer satisfaction scores. Built with MLflow for experiment tracking and model deployment, ZenML for orchestration and Streamlit for interactive predictions.
 
 ## Features
 
@@ -13,39 +13,38 @@ End-to-end machine learning pipeline for predicting customer satisfaction scores
 
 ## Tech Stack
 
-- **Orchestration**: ZenML
-- **Experiment Tracking**: MLflow
-- **Model Deployment**: MLflow Model Deployer
-- **Web Interface**: Streamlit
-- **ML Framework**: scikit-learn, XGBoost, LightGBM, CatBoost
-- **Data Processing**: Pandas, NumPy
+ZenML, MLflow, Streamlit, scikit-learn, Pandas, NumPy
 
 ## Prerequisites
 
 - Python 3.12+
 - Virtual environment (recommended)
-- macOS, Linux, or Windows
+- macOS, Linux or Windows
 
 ## Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/yourusername/MLOps-Customer-Satisfaction-Pipeline.git
 cd MLOps-Customer-Satisfaction-Pipeline
 ```
 
 2. Create and activate virtual environment:
+
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
 3. Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
 
 4. Initialize ZenML:
+
 ```bash
 zenml init
 ```
@@ -90,47 +89,24 @@ streamlit run streamlit_app.py
 
 Access the application at: `http://localhost:8501`
 
-## Project Structure
-
-```
-MLOps-Customer-Satisfaction-Pipeline/
-├── data/                          # Dataset storage
-├── pipelines/                     # ZenML pipeline definitions
-│   ├── training_pipeline.py       # Model training pipeline
-│   ├── deployment_pipeline.py     # Deployment and inference pipelines
-│   └── utils.py                   # Helper functions
-├── steps/                         # Pipeline steps
-│   ├── ingest_data.py            # Data ingestion
-│   ├── clean_data.py             # Data preprocessing
-│   ├── model_train.py            # Model training
-│   ├── evaluation.py             # Model evaluation
-│   └── config.py                 # Configuration classes
-├── src/                          # Core logic
-│   ├── data_cleaning.py          # Data cleaning strategies
-│   ├── model_dev.py              # Model implementations
-│   └── evaluation.py             # Evaluation metrics
-├── materializer/                 # Custom ZenML materializers
-├── streamlit_app.py              # Web interface
-├── run_pipeline.py               # Training pipeline runner
-├── run_deployment.py             # Deployment pipeline runner
-└── requirements.txt              # Project dependencies
-```
-
 ## Pipeline Workflows
 
 ### Training Pipeline
+
 1. Data ingestion from CSV
 2. Data cleaning and preprocessing
 3. Model training with MLflow tracking
 4. Model evaluation (MSE, RMSE, R2)
 
 ### Deployment Pipeline
+
 1. Execute training pipeline
 2. Evaluate model performance
 3. Deploy model if accuracy threshold is met
 4. Start MLflow prediction server
 
 ### Inference Pipeline
+
 1. Load test data
 2. Retrieve deployed model service
 3. Generate predictions
@@ -138,6 +114,7 @@ MLOps-Customer-Satisfaction-Pipeline/
 ## Model Performance
 
 Current deployed model: LinearRegression
+
 - MSE: 1.864
 - RMSE: 1.365
 - R2: 0.018
@@ -145,6 +122,7 @@ Current deployed model: LinearRegression
 ## Configuration
 
 Adjust deployment settings in `run_deployment.py`:
+
 - `--min-accuracy`: Minimum accuracy threshold for deployment (default: 0.92)
 - `--config`: Deployment mode (deploy, predict, deploy_and_predict)
 
@@ -155,6 +133,7 @@ MLflow prediction server runs at: `http://127.0.0.1:8000/invocations`
 ## Monitoring
 
 View experiments and runs:
+
 ```bash
 mlflow ui
 ```
@@ -164,8 +143,3 @@ Access MLflow UI at: `http://localhost:5000`
 ## License
 
 This project is licensed under the terms specified in the LICENSE file.
-
-## Contributing
-
-Contributions are welcome. Please ensure code follows existing patterns and includes appropriate tests.
-
