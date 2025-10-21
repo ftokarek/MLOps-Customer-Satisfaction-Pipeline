@@ -11,7 +11,7 @@ def main():
     st.title("Customer Satisfaction Prediction")
     
     st.markdown("""
-    ### Predict customer satisfaction for e-commerce orders
+    ### Predict customer satisfaction scores
     Enter product and payment details below to get a satisfaction score (0-5).
     Built with ZenML and MLflow for production ML pipelines.
     """)
